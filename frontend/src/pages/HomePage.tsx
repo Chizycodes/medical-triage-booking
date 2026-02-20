@@ -35,7 +35,9 @@ export default function HomePage() {
 						</p>
 					</div>
 
-					<Button className="w-full" onClick={handleBook}>Book a Meeting</Button>
+					<Button className="w-full" onClick={handleBook}>
+						Book a Meeting
+					</Button>
 
 					{booking && (
 						<div className="bg-white border border-border rounded-2xl p-5 text-left shadow-sm space-y-1">

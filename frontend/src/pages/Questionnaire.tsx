@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../store/useAppStore";
 import { QUESTIONS } from "../data/questions";
-import { submitAssessment } from "../api";
+import { submitAssessment } from "../services/api";
 import Button from "../components/ui/Button";
 import { toast } from "react-toastify";
 
@@ -13,10 +13,6 @@ export default function QuestionnairePage() {
 	const question = QUESTIONS[currentQuestion];
 	const isLast = currentQuestion === QUESTIONS.length - 1;
 	const selectedScore = answers[currentQuestion];
-
-	const handleSelect = async (score: number) => {
-		answer(currentQuestion, score);
-	};
 
 	const handleNext = async () => {
 		if (!isLast) {
@@ -70,7 +66,7 @@ export default function QuestionnairePage() {
 							return (
 								<button
 									key={opt.score}
-									onClick={() => handleSelect(opt.score)}
+									onClick={() => answer(currentQuestion, opt.score)}
 									disabled={submitting}
 									className={`w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all duration-150 disabled:opacity-50 cursor-pointer
                     ${
