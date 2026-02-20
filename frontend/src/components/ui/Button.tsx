@@ -35,8 +35,8 @@ export default function Button({
 		<button
 			disabled={disabled || loading}
 			className={`
-        w-full font-semibold rounded-2xl transition-all duration-150
-        disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none
+        font-semibold rounded-2xl transition-all duration-150
+        disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none cursor-pointer
         flex items-center justify-center gap-2
         ${variantClasses[variant]}
         ${sizeClasses[size]}

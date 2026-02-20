@@ -1,31 +1,26 @@
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Button from "../components/Button";
+import Footer from "../components/ui/Footer";
+import Button from "../components/ui/Button";
+import { useAppStore } from "../store/useAppStore";
+import { formatSlot, formatWaitTime } from "../utils";
 
 export default function HomePage() {
 	const navigate = useNavigate();
-	const waitingMinutes = "5 mins";
-	const booking = {
-		recommendation: "Doctor",
-		confirmationId: "",
-		slot: "",
-	};
+	const { waitingMinutes, booking, reset } = useAppStore((s) => s);
 
 	const handleBook = () => {
+		reset();
 		navigate("/questionnaire");
 	};
 
 	return (
-		<div className="min-h-screen bg-page-bg flex flex-col">
-			<Header />
-
+		<>
 			<main className="flex-1 flex flex-col items-center justify-center px-6 py-16">
 				<div className="max-w-md w-full text-center space-y-8">
 					<div className="inline-flex items-center gap-2 bg-brand-subtle border border-brand rounded-full px-4 py-2">
 						<span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
 						<span className="text-brand text-sm font-medium">
-							See a doctor in <strong>{waitingMinutes}</strong>
+							See a doctor in <strong>{formatWaitTime(waitingMinutes)}</strong>
 						</span>
 					</div>
 
@@ -40,12 +35,12 @@ export default function HomePage() {
 						</p>
 					</div>
 
-					<Button onClick={handleBook}>Book a Meeting</Button>
+					<Button className="w-full" onClick={handleBook}>Book a Meeting</Button>
 
 					{booking && (
 						<div className="bg-white border border-border rounded-2xl p-5 text-left shadow-sm space-y-1">
 							<p className="text-xs font-semibold text-brand uppercase tracking-widest">Upcoming appointment</p>
-							<p className="text-text-heading font-semibold">{booking.slot}</p>
+							<p className="text-text-heading font-semibold">{formatSlot(booking.slot)}</p>
 							<p className="text-text-body text-sm">
 								{booking.recommendation} appointment · Ref: <span className="font-mono">{booking.confirmationId}</span>
 							</p>
@@ -55,6 +50,6 @@ export default function HomePage() {
 			</main>
 
 			<Footer />
-		</div>
+		</>
 	);
 }

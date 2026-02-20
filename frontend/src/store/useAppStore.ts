@@ -14,6 +14,7 @@ interface AppState {
 interface AppActions {
 	answer: (questionIndex: number, score: number) => void;
 	goBack: () => void;
+	goNext: () => void;
 	reset: () => void;
 	setResult: (result: AssessmentResponse) => void;
 	setBooking: (booking: BookingResponse) => void;
@@ -46,6 +47,11 @@ export const useAppStore = create<AppStore>((set) => ({
 	goBack: () =>
 		set((state) => ({
 			currentQuestion: Math.max(0, state.currentQuestion - 1),
+		})),
+
+	goNext: () =>
+		set((state) => ({
+			currentQuestion: Math.min(state.currentQuestion + 1, TOTAL_QUESTIONS - 1),
 		})),
 
 	reset: () =>
