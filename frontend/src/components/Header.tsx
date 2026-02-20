@@ -1,0 +1,14 @@
+const Header = () => {
+	return (
+		<header className="bg-white border-b border-border px-6 py-4 flex items-center gap-3">
+			<div className="w-8 h-8 rounded-lg bg-brand flex items-center justify-center">
+				<svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-current">
+					<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15v-4H7l5-8v4h4l-5 8z" />
+				</svg>
+			</div>
+			<span className="text-text-heading font-semibold text-lg tracking-tight">MediTriage</span>
+		</header>
+	);
+};
+
+export default Header;
