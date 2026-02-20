@@ -5,6 +5,7 @@ import { QUESTIONS } from "../data/questions";
 import { submitAssessment } from "../services/api";
 import Button from "../components/ui/Button";
 import { toast } from "react-toastify";
+import QuestionCard from "../components/questionnaire/QuestionCard";
 
 export default function QuestionnairePage() {
 	const navigate = useNavigate();
@@ -57,52 +58,13 @@ export default function QuestionnairePage() {
 			</div>
 
 			<main className="flex-1 flex flex-col items-center justify-center px-6 py-8">
-				<div className="max-w-xl w-full space-y-8">
-					<h2 className="text-2xl font-bold text-text-heading leading-snug">{question.text}</h2>
-
-					<div className="space-y-3">
-						{question.options.map((opt) => {
-							const isSelected = selectedScore === opt.score;
-							return (
-								<button
-									key={opt.score}
-									onClick={() => answer(currentQuestion, opt.score)}
-									disabled={submitting}
-									className={`w-full text-left px-5 py-4 rounded-xl border-2 font-medium transition-all duration-150 disabled:opacity-50 cursor-pointer
-                    ${
-											isSelected
-												? "border-brand bg-brand-subtle text-brand"
-												: "border-border bg-white text-text-heading hover:border-brand-hover hover:bg-teal-50/50"
-										}`}
-								>
-									<div className="flex items-center gap-3">
-										<div
-											className={`w-5 h-5 rounded-full border-2 shrink-0 transition-colors
-                      ${isSelected ? "border-teal-500 bg-teal-500" : "border-slate-300"}`}
-										>
-											{isSelected && (
-												<svg viewBox="0 0 20 20" className="w-full h-full text-white fill-current p-0.5">
-													<path
-														fillRule="evenodd"
-														d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-													/>
-												</svg>
-											)}
-										</div>
-										{opt.label}
-									</div>
-								</button>
-							);
-						})}
-					</div>
-
-					{submitting && (
-						<div className="flex items-center justify-center gap-3 text-slate-500 py-2">
-							<div className="w-5 h-5 border-2 border-teal-500 border-t-transparent rounded-full animate-spin" />
-							<span className="text-sm">Analysing your responses…</span>
-						</div>
-					)}
-				</div>
+				<QuestionCard
+					question={question}
+					currentQuestion={currentQuestion}
+					selectedScore={selectedScore}
+					answer={answer}
+					submitting={submitting}
+				/>
 
 				<div className="flex gap-1.5 mt-10">
 					{QUESTIONS.map((_, i) => (
