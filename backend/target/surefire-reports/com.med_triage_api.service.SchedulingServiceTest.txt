@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.med_triage_api.service.SchedulingServiceTest
+-------------------------------------------------------------------------------
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 s -- in com.med_triage_api.service.SchedulingServiceTest
