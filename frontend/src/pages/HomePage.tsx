@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/ui/Footer";
 import Button from "../components/ui/Button";
-import { useAppStore } from "../store/useAppStore";
+import { useAppStore } from "../store/useTriageStore";
 import { formatSlot, formatWaitTime } from "../utils";
 
 export default function HomePage() {

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=DM+Sans:wght@400;500;600&display=swap");
+
 @import "tailwindcss";
 
 @theme {
@@ -19,4 +21,10 @@
 	--color-error-bg: #fff1f2;
 	--color-error-border: #fecdd3;
 	--color-error-text: #be123c;
+}
+
+html,
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }

@@ -1,5 +1,5 @@
 import { useNavigate, Navigate } from "react-router-dom";
-import { useAppStore } from "../store/useAppStore";
+import { useAppStore } from "../store/useTriageStore";
 import { formatSlot, RECOMMENDATION_INFO } from "../utils";
 import Button from "../components/ui/Button";
 

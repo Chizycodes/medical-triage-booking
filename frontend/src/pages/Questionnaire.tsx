@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppStore } from "../store/useAppStore";
+import { useAppStore } from "../store/useTriageStore";
 import { QUESTIONS } from "../data/questions";
 import { submitAssessment } from "../services/api";
 import Button from "../components/ui/Button";

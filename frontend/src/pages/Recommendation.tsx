@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
-import { useAppStore } from "../store/useAppStore";
+import { useAppStore } from "../store/useTriageStore";
 import { RECOMMENDATION_INFO, formatSlotDate, formatSlotShort } from "../utils";
 import { confirmBooking } from "../services/api";
 import { toast } from "react-toastify";
