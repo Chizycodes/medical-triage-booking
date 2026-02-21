@@ -30,12 +30,12 @@ export default function Input({ label, error, hint, className = "", ...props }: 
 				aria-invalid={!!error}
 				aria-required={props.required}
 				className={`
-          w-full px-4 py-3 rounded-b-md border border-brand text-text-secondary text-sm
+          w-full px-4 py-3 rounded-b-md border text-text-secondary text-sm
           placeholder:text-text-muted bg-white
           focus:outline-none focus:ring-2 focus:ring-brand focus:border-transparent
           disabled:opacity-50 disabled:cursor-not-allowed
           transition-all duration-150
-          ${error ? "border-error-text" : "border-page-border"}
+          ${error ? "border-error-text" : "border-brand"}
           ${className}
         `}
 				{...props}

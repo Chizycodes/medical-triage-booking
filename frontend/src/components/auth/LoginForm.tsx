@@ -63,9 +63,10 @@ export default function LoginForm() {
 					error={errors.password?.message}
 					{...register("password", {
 						required: "Password is required",
-						minLength: {
-							value: 3,
-							message: "Password must be at least 3 characters",
+						pattern: {
+							value:
+								/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^#()[\]{}\-_=+|;:'",.<>/\\`~])[A-Za-z\d@$!%*?&^#()[\]{}\-_=+|;:'",.<>/\\`~]{8,}$/,
+							message: "Must be 8+ chars, include uppercase, lowercase, number and special character",
 						},
 					})}
 				/>
@@ -78,7 +79,7 @@ export default function LoginForm() {
 			{/* Demo hint */}
 			<div className="border border-dashed border-page-border rounded-xl px-4 py-3 space-y-1">
 				<p className="text-text-muted text-xs font-semibold uppercase tracking-widest">Demo credentials</p>
-				<p className="text-text-body text-sm font-mono">demo@meditriage.com / demo</p>
+				<p className="text-text-body text-sm font-mono">demo@meditriage.com / Demo@1234</p>
 			</div>
 		</>
 	);

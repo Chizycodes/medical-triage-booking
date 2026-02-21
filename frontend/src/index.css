@@ -11,6 +11,7 @@
 
 	--color-page-bg: #f8fafc;
 	--color-border: #e2e8f0;
+	--color-page-border: #e2e8f0;
 
 	/* Text */
 	--color-text-primary: #002845;
@@ -21,6 +22,10 @@
 	--color-error-bg: #fff1f2;
 	--color-error-border: #fecdd3;
 	--color-error-text: #be123c;
+
+	  /* Fonts */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
 }
 
 html,
