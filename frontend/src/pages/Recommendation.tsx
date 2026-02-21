@@ -87,7 +87,7 @@ export default function RecommendationPage() {
 					)}
 				</div>
 
-				<Button onClick={handleConfirm} disabled={!selectedSlot || submitting} loading={submitting} className="w-full">
+				<Button onClick={handleConfirm} disabled={!selectedSlot || submitting} loading={submitting} className="w-full sticky bottom-3">
 					Confirm Booking
 				</Button>
 			</main>

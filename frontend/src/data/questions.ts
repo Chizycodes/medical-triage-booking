@@ -15,7 +15,7 @@ export const QUESTIONS: Question[] = [
     text: "How long have you had this symptom?",
     options: [
       { label: "Less than 24 hours", score: 1 },
-      { label: "1–3 days", score: 2 },
+      { label: "1-3 days", score: 2 },
       { label: "More than 3 days", score: 3 },
     ],
   },
