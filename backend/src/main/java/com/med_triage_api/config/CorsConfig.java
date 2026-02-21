@@ -15,8 +15,8 @@ public class CorsConfig {
   public CorsFilter corsFilter() {
     CorsConfiguration config = new CorsConfiguration();
     config.setAllowedOrigins(List.of(
-        "http://localhost:*",
-        "https://*.vercel.app"));
+        "https://medi-triage-io.vercel.app",
+        "http://localhost:5173"));
     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     config.setAllowedHeaders(List.of("*"));
     config.setAllowCredentials(false);
