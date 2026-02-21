@@ -181,22 +181,22 @@ Tests cover:
 
 ## Key Decisions & Trade-offs
 
-- **Zustand over Context API** — two separate stores (`useTriageStore`, `useAuthStore`) keep auth and booking concerns independent. Components subscribe to only the slices they need, avoiding unnecessary re-renders.
-- **React Router nested routes** — a single `<ProtectedRoute />` layout route wraps all authenticated pages, so the auth check is declared once rather than repeated per route.
-- **React Hook Form** — replaces manual `useState` for form fields. Gives built-in validation, error state, and `isSubmitting` for free.
-- **Axios instance** — base URL and headers configured once; easy to attach interceptors later (e.g. auth tokens).
-- **Tailwind v4 `@theme`** — no `tailwind.config.js`; all custom colour tokens live in `index.css`.
-- **SVG logo as an asset** — imported once in a `<Logo />` component with a `size` prop, eliminating repeated inline SVG blocks across pages.
-- **Mock authentication** — seeded user list in `data/users.ts` with a simulated network delay. No real auth is wired up; acceptable per the brief.
-- **CORS is open (`*`)** — fine for local development. Restrict to the frontend's domain in production.
+- **Zustand over Context API** - two separate stores (`useTriageStore`, `useAuthStore`) keep auth and booking concerns independent. Components subscribe to only the slices they need, avoiding unnecessary re-renders.
+- **React Router nested routes** - a single `<ProtectedRoute />` layout route wraps all authenticated pages, so the auth check is declared once rather than repeated per route.
+- **React Hook Form** - replaces manual `useState` for form fields. Gives built-in validation, error state, and `isSubmitting` for free.
+- **Axios instance** - base URL and headers configured once; easy to attach interceptors later (e.g. auth tokens).
+- **Tailwind v4 `@theme`** - no `tailwind.config.js`; all custom colour tokens live in `index.css`.
+- **SVG logo as an asset** - imported once in a `<Logo />` component with a `size` prop, eliminating repeated inline SVG blocks across pages.
+- **Mock authentication** - seeded user list in `data/users.ts` with a simulated network delay. No real auth is wired up; acceptable per the brief.
+- **CORS is open (`*`)** - fine for local development. Restrict to the frontend's domain in production.
 
 ---
 
 ## What I Would Improve Given More Time
 
-1. **Slot conflict prevention** — exclude already-booked slots from future `/assessment` responses.
-2. **Persist auth across refresh** — store the user session in `localStorage` or a cookie so login survives a page reload.
-3. **Frontend tests** — Vitest + React Testing Library covering the questionnaire flow and store logic.
-4. **Docker Compose** — single `docker compose up` to spin up both services.
-5. **CI** — GitHub Actions workflow to run backend tests and lint the frontend on every push.
-6. **Real authentication** — JWT-based login endpoint on the backend with token validation on protected API routes.
+1. **Slot conflict prevention** - exclude already-booked slots from future `/assessment` responses.
+2. **Persist auth across refresh** - store the user session in `localStorage` or a cookie so login survives a page reload.
+3. **Frontend tests** - Vitest + React Testing Library covering the questionnaire flow and store logic.
+4. **Docker Compose** - single `docker compose up` to spin up both services.
+5. **CI** - GitHub Actions workflow to run backend tests and lint the frontend on every push.
+6. **Real authentication** - JWT-based login endpoint on the backend with token validation on protected API routes.
