@@ -1,35 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand */
-  --color-brand: #0d9488;
-  --color-brand-hover: #0f766e;
-  --color-brand-light: #ccfbf1;
-  --color-brand-subtle: #f0fdfa;
+	/* Brand */
+	--color-brand: #004484;
+	--color-brand-hover: #003370;
+	--color-brand-light: #dbeafe;
+	--color-brand-subtle: #eff6ff;
 
-  --color-page-bg: #f8fafc;
-  --color-border: #e2e8f0;
+	--color-page-bg: #f8fafc;
+	--color-border: #e2e8f0;
 
-  /* Text */
-  --color-text-heading: #1e293b;
-  --color-text-body: #475569;
-  --color-text-muted: #94a3b8;
+	/* Text */
+	--color-text-primary: #002845;
+	--color-text-secondary: #0a161f96;
+	--color-text-muted: #94a3b8;
 
-  /* Recommendation badges */
-  --color-chat-bg: #f0fdfa;
-  --color-chat-border: #99f6e4;
-  --color-chat-text: #0f766e;
-
-  --color-nurse-bg: #f0f9ff;
-  --color-nurse-border: #bae6fd;
-  --color-nurse-text: #0369a1;
-
-  --color-doctor-bg: #fff1f2;
-  --color-doctor-border: #fecdd3;
-  --color-doctor-text: #be123c;
-
-  /* Error */
-  --color-error-bg: #fff1f2;
-  --color-error-border: #fecdd3;
-  --color-error-text: #be123c;
+	/* Error */
+	--color-error-bg: #fff1f2;
+	--color-error-border: #fecdd3;
+	--color-error-text: #be123c;
 }

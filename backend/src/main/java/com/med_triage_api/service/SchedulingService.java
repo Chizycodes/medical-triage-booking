@@ -117,9 +117,9 @@ public class SchedulingService {
 
   /**
    * Derives a recommendation from a triage score.
-   * Score 5–7 → Chat
-   * Score 8–11 → Nurse
-   * Score 12–15 → Doctor
+   * Score 5-7 → Chat
+   * Score 8-11 → Nurse
+   * Score 12-15 → Doctor
    */
   public String getRecommendation(int score) {
     if (score <= 7)

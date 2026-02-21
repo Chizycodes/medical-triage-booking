@@ -8,7 +8,7 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * In-memory booking store. No database required.
+ * In-memory booking store.
  * Data is lost on restart - acceptable per the assignment spec.
  */
 @Service

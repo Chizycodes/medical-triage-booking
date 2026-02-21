@@ -1,6 +1,7 @@
 import { useNavigate, Navigate } from "react-router-dom";
 import { useAppStore } from "../store/useAppStore";
 import { formatSlot, RECOMMENDATION_INFO } from "../utils";
+import Button from "../components/ui/Button";
 
 export default function ConfirmationPage() {
 	const navigate = useNavigate();
@@ -24,7 +25,7 @@ export default function ConfirmationPage() {
 					</div>
 
 					<div className="space-y-2">
-						<h1 className="text-3xl font-bold text-text-heading">You're booked!</h1>
+						<h1 className="text-3xl font-bold text-text-primary">You're booked!</h1>
 						<p className="text-text-body text-lg">Your appointment has been confirmed.</p>
 					</div>
 
@@ -33,14 +34,14 @@ export default function ConfirmationPage() {
 							<span className="text-2xl">{info.icon}</span>
 							<div>
 								<p className="text-xs font-semibold text-text-muted uppercase tracking-widest">Type</p>
-								<p className="font-semibold text-text-heading">{info.title}</p>
+								<p className="font-semibold text-text-primary">{info.title}</p>
 							</div>
 						</div>
 
 						<div className="border-t border-border pt-4 space-y-3">
 							<div>
 								<p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-0.5">Date & Time</p>
-								<p className="font-semibold text-text-heading">{formatSlot(booking.slot)}</p>
+								<p className="font-semibold text-text-primary">{formatSlot(booking.slot)}</p>
 							</div>
 							<div>
 								<p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-0.5">
@@ -53,15 +54,15 @@ export default function ConfirmationPage() {
 						</div>
 					</div>
 
-					<button
+					<Button
 						onClick={() => {
 							reset();
 							navigate("/");
 						}}
-						className="w-full bg-brand hover:bg-brand-hover text-white font-semibold text-lg py-4 px-8 rounded-2xl transition-all duration-150 shadow-lg"
+						className="w-full"
 					>
 						Return to Home
-					</button>
+					</Button>
 				</div>
 			</main>
 		</>

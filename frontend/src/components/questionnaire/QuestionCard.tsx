@@ -21,7 +21,7 @@ const QuestionCard = ({ question, currentQuestion, selectedScore, answer, submit
 					transition={{ duration: 0.35, ease: "easeInOut" }}
 					className="space-y-8"
 				>
-					<h2 className="text-2xl font-bold text-text-heading leading-snug">{question.text}</h2>
+					<h2 className="text-2xl font-bold text-text-primary leading-snug">{question.text}</h2>
 
 					<div className="space-y-3">
 						{question.options.map((opt) => {
@@ -35,7 +35,7 @@ const QuestionCard = ({ question, currentQuestion, selectedScore, answer, submit
                     ${
 											isSelected
 												? "border-brand bg-brand-subtle text-brand"
-												: "border-border bg-white text-text-heading hover:border-brand-hover hover:bg-brand-subtle"
+												: "border-border bg-white text-text-primary hover:border-brand-hover hover:bg-brand-subtle"
 										}`}
 								>
 									<div className="flex items-center gap-3">

@@ -41,19 +41,19 @@ export default function RecommendationPage() {
 	return (
 		<>
 			<main className="flex-1 px-6 py-8 max-w-xl mx-auto w-full space-y-6 bg-page-bg">
-				<div className="border-2 rounded-2xl p-6 bg-chat-bg border-chat-border text-chat-text">
+				<div className="border-2 rounded-2xl p-6 bg-brand-subtle border-brand text-chat-text">
 					<div className="flex items-start gap-4">
 						<span className="text-4xl">{info.icon}</span>
 						<div className="space-y-1">
 							<p className="text-xs font-semibold uppercase tracking-widest text-text-muted">Recommended</p>
-							<h2 className="text-xl font-bold text-text-heading">{info.title}</h2>
+							<h2 className="text-xl font-bold text-text-primary">{info.title}</h2>
 							<p className="text-sm leading-relaxed text-text-body">{info.description}</p>
 						</div>
 					</div>
 				</div>
 
 				<div className="space-y-4">
-					<h3 className="text-text-heading font-semibold text-lg">Select an appointment slot</h3>
+					<h3 className="text-text-primary font-semibold text-lg">Select an appointment slot</h3>
 
 					{availableSlots.length === 0 ? (
 						<div className="bg-white border border-border rounded-xl p-6 text-center text-text-muted">
@@ -70,11 +70,11 @@ export default function RecommendationPage() {
 											<Button
 												key={slot}
 												onClick={() => setSelectedSlot(slot)}
-												className={`py-2.5 px-3 rounded-xl border-2 text-sm font-semibold transition-all duration-150
+												className={`py-2.5 px-3 rounded-xl border-2 text-sm font-semibold transition-all duration-150 shadow-none hover:text-white!
                           ${
 														isSelected
-															? "border-brand bg-brand-light text-brand"
-															: "border-border bg-white text-text-body hover:border-brand"
+															? "border-brand bg-white text-brand!"
+															: "border-border bg-white text-text-secondary! hover:border-brand"
 													}`}
 											>
 												{formatSlotShort(slot)}
