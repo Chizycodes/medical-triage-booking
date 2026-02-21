@@ -1,4 +1,5 @@
 /Users/mac/Developer/Projects/react-projects/medical-triage-booking/backend/src/main/java/com/med_triage_api/MedTriageApplication.java
+/Users/mac/Developer/Projects/react-projects/medical-triage-booking/backend/src/main/java/com/med_triage_api/config/CorsConfig.java
 /Users/mac/Developer/Projects/react-projects/medical-triage-booking/backend/src/main/java/com/med_triage_api/controller/GlobalExceptionHandler.java
 /Users/mac/Developer/Projects/react-projects/medical-triage-booking/backend/src/main/java/com/med_triage_api/controller/MedTriageController.java
 /Users/mac/Developer/Projects/react-projects/medical-triage-booking/backend/src/main/java/com/med_triage_api/model/AssessmentRequest.java

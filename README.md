@@ -46,6 +46,7 @@ Medical triage and booking application. Patients log in, complete a 5-question s
 └── backend/
     └── src/
         ├── main/java/com/med_triage_api/
+        │   ├── config/         # Application configuration (CorsConfig)
         │   ├── controller/     # MedTriageController, GlobalExceptionHandler
         │   ├── model/          # Request/Response POJOs
         │   └── service/        # SchedulingService, BookingService
@@ -188,7 +189,6 @@ Tests cover:
 - **Tailwind v4 `@theme`** - no `tailwind.config.js`; all custom colour tokens live in `index.css`.
 - **SVG logo as an asset** - imported once in a `<Logo />` component with a `size` prop, eliminating repeated inline SVG blocks across pages.
 - **Mock authentication** - seeded user list in `data/users.ts` with a simulated network delay. No real auth is wired up; acceptable per the brief.
-- **CORS is open (`*`)** - fine for local development. Restrict to the frontend's domain in production.
 
 ---
 
