@@ -27,7 +27,7 @@ export default function Input({ label, error, hint, className = "", ...props }: 
 			<input
 				id={id}
 				aria-describedby={describedBy || undefined}
-				aria-invalid={!!error}
+				aria-invalid={error ? "true" : "false"}
 				aria-required={props.required}
 				className={`
           w-full px-4 py-3 rounded-b-md border text-text-secondary text-sm
@@ -48,7 +48,7 @@ export default function Input({ label, error, hint, className = "", ...props }: 
 			)}
 
 			{error && (
-				<p id={errorId} role="alert" className="text-error-text text-xs">
+				<p id={errorId} aria-live="assertive" className="text-error-text text-xs">
 					{error}
 				</p>
 			)}

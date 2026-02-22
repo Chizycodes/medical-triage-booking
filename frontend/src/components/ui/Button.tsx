@@ -34,6 +34,10 @@ export default function Button({
 	return (
 		<button
 			disabled={disabled || loading}
+			type={props.type ?? "button"}
+			aria-busy={loading}
+			aria-label={loading ? "Loading, please wait" : undefined}
+			aria-disabled={disabled}
 			className={`
         font-semibold rounded-2xl transition-all duration-150
         disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none cursor-pointer
@@ -44,7 +48,12 @@ export default function Button({
       `}
 			{...props}
 		>
-			{loading && <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />}
+			{loading && (
+				<div
+					aria-hidden="true"
+					className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin"
+				/>
+			)}
 			{children}
 		</button>
 	);
