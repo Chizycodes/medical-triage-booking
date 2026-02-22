@@ -9,7 +9,14 @@ import QuestionCard from "../components/questionnaire/QuestionCard";
 
 export default function QuestionnairePage() {
 	const navigate = useNavigate();
-	const { currentQuestion, answers, answer, goBack, goNext, reset, setResult } = useTriageStore((s) => s);
+	const currentQuestion = useTriageStore((s) => s.currentQuestion);
+	const answers = useTriageStore((s) => s.answers);
+	const answer = useTriageStore((s) => s.answer);
+	const goBack = useTriageStore((s) => s.goBack);
+	const goNext = useTriageStore((s) => s.goNext);
+	const reset = useTriageStore((s) => s.reset);
+	const setResult = useTriageStore((s) => s.setResult);
+
 	const [submitting, setSubmitting] = useState(false);
 	const question = QUESTIONS[currentQuestion];
 	const isLast = currentQuestion === QUESTIONS.length - 1;

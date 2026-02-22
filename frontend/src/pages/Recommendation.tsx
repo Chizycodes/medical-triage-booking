@@ -1,34 +1,35 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
 import { useTriageStore } from "../store/useTriageStore";
-import { RECOMMENDATION_INFO, formatSlotDate, formatSlotShort } from "../utils";
+import { RECOMMENDATION_INFO, formatSlotDate } from "../utils";
 import { confirmBooking } from "../services/api";
 import { toast } from "react-toastify";
 import Button from "../components/ui/Button";
+import SlotButton from "../components/recommendation/SlotButton";
 
 export default function RecommendationPage() {
 	const navigate = useNavigate();
-	const { assessmentResult, setBooking } = useTriageStore((s) => s);
+	const assessmentResult = useTriageStore((s) => s.assessmentResult);
+	const setBooking = useTriageStore((s) => s.setBooking);
 	const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
 	const [submitting, setSubmitting] = useState(false);
 
-	if (!assessmentResult) return <Navigate to="/" replace />;
-
-	const { recommendation, availableSlots } = assessmentResult;
-	const info = RECOMMENDATION_INFO[recommendation];
-
-	const slotsByDate = availableSlots.reduce<Record<string, string[]>>((acc, slot) => {
-		const date = formatSlotDate(slot);
-		if (!acc[date]) acc[date] = [];
-		acc[date].push(slot);
-		return acc;
-	}, {});
+	const slotsByDate = useMemo(
+		() =>
+			(assessmentResult?.availableSlots ?? []).reduce<Record<string, string[]>>((acc, slot) => {
+				const date = formatSlotDate(slot);
+				if (!acc[date]) acc[date] = [];
+				acc[date].push(slot);
+				return acc;
+			}, {}),
+		[assessmentResult?.availableSlots],
+	);
 
 	const handleConfirm = async () => {
-		if (!selectedSlot) return;
+		if (!selectedSlot || !assessmentResult) return;
 		setSubmitting(true);
 		try {
-			const result = await confirmBooking(selectedSlot, recommendation);
+			const result = await confirmBooking(selectedSlot, assessmentResult.recommendation);
 			setBooking(result);
 			navigate("/confirmed");
 		} catch {
@@ -37,6 +38,11 @@ export default function RecommendationPage() {
 			setSubmitting(false);
 		}
 	};
+
+	if (!assessmentResult) return <Navigate to="/" replace />;
+
+	const { recommendation, availableSlots } = assessmentResult;
+	const info = RECOMMENDATION_INFO[recommendation];
 
 	return (
 		<>
@@ -66,20 +72,7 @@ export default function RecommendationPage() {
 								<div className="grid grid-cols-3 sm:grid-cols-4 gap-2">
 									{slots.map((slot) => {
 										const isSelected = selectedSlot === slot;
-										return (
-											<Button
-												key={slot}
-												onClick={() => setSelectedSlot(slot)}
-												className={`py-2.5 px-3 rounded-xl border-2 text-sm font-semibold transition-all duration-150 shadow-none hover:text-white!
-                          ${
-														isSelected
-															? "border-brand bg-white text-brand!"
-															: "border-border bg-white text-text-secondary! hover:border-brand"
-													}`}
-											>
-												{formatSlotShort(slot)}
-											</Button>
-										);
+										return <SlotButton key={slot} slot={slot} isSelected={isSelected} onSelect={setSelectedSlot} />;
 									})}
 								</div>
 							</div>

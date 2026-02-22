@@ -5,7 +5,8 @@ import Button from "../components/ui/Button";
 
 export default function ConfirmationPage() {
 	const navigate = useNavigate();
-	const { booking, reset } = useTriageStore((s) => s);
+	const booking = useTriageStore((s) => s.booking);
+	const reset = useTriageStore((s) => s.reset);
 
 	if (!booking) return <Navigate to="/" replace />;
 

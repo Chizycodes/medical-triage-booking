@@ -6,7 +6,9 @@ import { formatSlot, formatWaitTime } from "../utils";
 
 export default function HomePage() {
 	const navigate = useNavigate();
-	const { waitingMinutes, booking, reset } = useTriageStore((s) => s);
+	const waitingMinutes = useTriageStore((s) => s.waitingMinutes);
+	const booking = useTriageStore((s) => s.booking);
+	const reset = useTriageStore((s) => s.reset);
 
 	const handleBook = () => {
 		reset();
