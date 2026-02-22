@@ -42,6 +42,7 @@ Medical triage and booking application. Patients log in, complete a 5-question s
 │       ├── services/       # Axios instance and API call functions
 │       ├── store/          # useTriageStore (booking flow), useAuthStore (auth)
 │       ├── types/          # TypeScript interfaces
+│       ├── tests/          # Unit tests 
 │       └── utils/          # Slot formatting helpers, recommendation metadata
 └── backend/
     └── src/
@@ -195,7 +196,7 @@ Tests cover:
 ## What I Would Improve Given More Time
 
 1. **Slot conflict prevention** - exclude already-booked slots from future `/assessment` responses.
-2. **Frontend tests** - Vitest + React Testing Library covering the questionnaire flow and store logic.
+2. **Frontend tests** - Vitest + React Testing Library covering the questionnaire, recommendation, and confirmation pages.
 3. **Docker Compose** - single `docker compose up` to spin up both services.
 4. **CI** - GitHub Actions workflow to run backend tests and lint the frontend on every push.
 5. **Real authentication** - JWT-based login endpoint on the backend with token validation on protected API routes.
