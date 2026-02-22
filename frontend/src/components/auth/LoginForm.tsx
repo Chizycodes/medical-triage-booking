@@ -19,7 +19,9 @@ export default function LoginForm() {
 		register,
 		handleSubmit,
 		formState: { errors, isSubmitting },
-	} = useForm<LoginFormValues>();
+	} = useForm<LoginFormValues>({
+		mode: "onBlur",
+	});
 
 	const onSubmit = async (data: LoginFormValues) => {
 		await new Promise((r) => setTimeout(r, 600));
