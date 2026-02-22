@@ -1,12 +1,11 @@
 import { useNavigate, Navigate } from "react-router-dom";
-import { useAppStore } from "../store/useTriageStore";
+import { useTriageStore } from "../store/useTriageStore";
 import { formatSlot, RECOMMENDATION_INFO } from "../utils";
 import Button from "../components/ui/Button";
 
 export default function ConfirmationPage() {
 	const navigate = useNavigate();
-	const booking = useAppStore((s) => s.booking);
-	const reset = useAppStore((s) => s.reset);
+	const { booking, reset } = useTriageStore((s) => s);
 
 	if (!booking) return <Navigate to="/" replace />;
 

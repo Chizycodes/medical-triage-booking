@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Navigate } from "react-router-dom";
-import { useAppStore } from "../store/useTriageStore";
+import { useTriageStore } from "../store/useTriageStore";
 import { RECOMMENDATION_INFO, formatSlotDate, formatSlotShort } from "../utils";
 import { confirmBooking } from "../services/api";
 import { toast } from "react-toastify";
@@ -8,7 +8,7 @@ import Button from "../components/ui/Button";
 
 export default function RecommendationPage() {
 	const navigate = useNavigate();
-	const { assessmentResult, setBooking } = useAppStore((s) => s);
+	const { assessmentResult, setBooking } = useTriageStore((s) => s);
 	const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
 	const [submitting, setSubmitting] = useState(false);
 
@@ -87,7 +87,12 @@ export default function RecommendationPage() {
 					)}
 				</div>
 
-				<Button onClick={handleConfirm} disabled={!selectedSlot || submitting} loading={submitting} className="w-full sticky bottom-3">
+				<Button
+					onClick={handleConfirm}
+					disabled={!selectedSlot || submitting}
+					loading={submitting}
+					className="w-full sticky bottom-3"
+				>
 					Confirm Booking
 				</Button>
 			</main>

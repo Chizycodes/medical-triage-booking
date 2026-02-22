@@ -31,7 +31,7 @@ const initialData: AppState = {
 	waitingMinutes: 12,
 };
 
-export const useAppStore = create<AppStore>((set) => ({
+export const useTriageStore = create<AppStore>((set) => ({
 	...initialData,
 
 	answer: (questionIndex, score) =>

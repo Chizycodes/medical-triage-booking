@@ -40,7 +40,7 @@ Medical triage and booking application. Patients log in, complete a 5-question s
 │       ├── pages/          # LoginPage, HomePage, Questionnaire, Recommendation, Confirmation
 |       ├── routes/         # ProtectedRoute
 │       ├── services/       # Axios instance and API call functions
-│       ├── store/          # useAppStore (booking flow), useAuthStore (auth)
+│       ├── store/          # useTriageStore (booking flow), useAuthStore (auth)
 │       ├── types/          # TypeScript interfaces
 │       └── utils/          # Slot formatting helpers, recommendation metadata
 └── backend/
@@ -188,15 +188,14 @@ Tests cover:
 - **Axios instance** - base URL and headers configured once; easy to attach interceptors later (e.g. auth tokens).
 - **Tailwind v4 `@theme`** - no `tailwind.config.js`; all custom colour tokens live in `index.css`.
 - **SVG logo as an asset** - imported once in a `<Logo />` component with a `size` prop, eliminating repeated inline SVG blocks across pages.
-- **Mock authentication** - seeded user list in `data/users.ts` with a simulated network delay. No real auth is wired up; acceptable per the brief.
+- **Mock authentication with persistence** - seeded user list in `data/users.ts` with a simulated network delay. Auth state is persisted to `localStorage` via Zustand's `persist` middleware, so the user remains logged in across page refreshes and browser sessions until they explicitly sign out.
 
 ---
 
 ## What I Would Improve Given More Time
 
 1. **Slot conflict prevention** - exclude already-booked slots from future `/assessment` responses.
-2. **Persist auth across refresh** - store the user session in `localStorage` or a cookie so login survives a page reload.
-3. **Frontend tests** - Vitest + React Testing Library covering the questionnaire flow and store logic.
-4. **Docker Compose** - single `docker compose up` to spin up both services.
-5. **CI** - GitHub Actions workflow to run backend tests and lint the frontend on every push.
-6. **Real authentication** - JWT-based login endpoint on the backend with token validation on protected API routes.
+2. **Frontend tests** - Vitest + React Testing Library covering the questionnaire flow and store logic.
+3. **Docker Compose** - single `docker compose up` to spin up both services.
+4. **CI** - GitHub Actions workflow to run backend tests and lint the frontend on every push.
+5. **Real authentication** - JWT-based login endpoint on the backend with token validation on protected API routes.

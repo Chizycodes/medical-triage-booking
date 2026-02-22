@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAppStore } from "../store/useTriageStore";
+import { useTriageStore } from "../store/useTriageStore";
 import { QUESTIONS } from "../data/questions";
 import { submitAssessment } from "../services/api";
 import Button from "../components/ui/Button";
@@ -9,7 +9,7 @@ import QuestionCard from "../components/questionnaire/QuestionCard";
 
 export default function QuestionnairePage() {
 	const navigate = useNavigate();
-	const { currentQuestion, answers, answer, goBack, goNext, reset, setResult } = useAppStore((s) => s);
+	const { currentQuestion, answers, answer, goBack, goNext, reset, setResult } = useTriageStore((s) => s);
 	const [submitting, setSubmitting] = useState(false);
 	const question = QUESTIONS[currentQuestion];
 	const isLast = currentQuestion === QUESTIONS.length - 1;

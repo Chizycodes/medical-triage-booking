@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/ui/Footer";
 import Button from "../components/ui/Button";
-import { useAppStore } from "../store/useTriageStore";
+import { useTriageStore } from "../store/useTriageStore";
 import { formatSlot, formatWaitTime } from "../utils";
 
 export default function HomePage() {
 	const navigate = useNavigate();
-	const { waitingMinutes, booking, reset } = useAppStore((s) => s);
+	const { waitingMinutes, booking, reset } = useTriageStore((s) => s);
 
 	const handleBook = () => {
 		reset();
